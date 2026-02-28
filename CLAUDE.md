@@ -95,3 +95,20 @@ First action each sprint: Re-contact Heidi Veillette — highest value writer.
 3. E&O insurance not started — get quotes before launch
 
 Never build LearnDash course structure until SSH access confirmed.
+
+
+---
+
+## FILE NAMING CONVENTION (enforced, not suggested)
+- All files: YYYY-MM-DD_DESCRIPTIVE-NAME_vN.ext
+- All closure/governance docs: CLOSURE_YYYY-MM-DD_TOPIC-SLUG.md
+- All build state docs: [PROJECT]_BUILD_STATE_YYYY-MM-DD.md
+- All handoff docs: HANDOFF_YYYY-MM-DD_TOPIC-SLUG.md
+- Never use: "final", "v2final", "copy", "new", or lowercase-hyphen for governance docs
+- Proposals: PROPOSAL_[FUNDER]_[TA]_[FORMAT]_YYYY-MM-DD.docx
+- Build outputs: [COMPONENT]_[PASS]_[SCORE]_YYYY-MM-DD.json
+- Commits: "[PROJECT] [phase]: [what changed] — [oracle result]"
+- Branches: feature/[component-name]-YYYY-MM-DD
+- Never commit directly to main without oracle passing
+
+Claude Code and Cowork must follow this convention on every file they create or rename. If a file is found that violates this convention, flag it for rename — do not silently leave it.
