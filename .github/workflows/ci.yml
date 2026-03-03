@@ -1,0 +1,45 @@
+name: CI — WordPress Health Check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  wp-health-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install WP-CLI
+        run: |
+          curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+          chmod +x wp-cli.phar
+          sudo mv wp-cli.phar /usr/local/bin/wp
+
+      - name: Verify WP-CLI installation
+        run: wp --info
+
+      - name: Check WordPress file structure
+        run: |
+          if [ -f "wp-config.php" ] || [ -f "wp-config-sample.php" ]; then
+            echo "✓ WordPress root detected"
+          else
+            echo "✓ No WordPress root in repo (theme/plugin repo)"
+          fi
+
+      - name: Validate PHP syntax
+        run: |
+          errors=0
+          for file in $(find . -name "*.php" -not -path "./vendor/*" -not -path "./.git/*" | head -100); do
+            if ! php -l "$file" > /dev/null 2>&1; then
+              echo "✗ $file — syntax error"
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "✗ $errors file(s) failed PHP lint"
+            exit 1
+          fi
+          echo "✓ All PHP files pass syntax check"
