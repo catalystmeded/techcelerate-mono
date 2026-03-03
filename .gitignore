@@ -1,2 +1,6 @@
 .env
 .env.*
+*.pdf
+*.zip
+*.tmp
+research/bls-data/
