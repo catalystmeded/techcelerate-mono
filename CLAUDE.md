@@ -1,26 +1,26 @@
-# CLAUDE.md — TechCelerate Sub-Project
-# Inherits: root CLAUDE.md (always read root first)
+# CLAUDE.md — TechCelerate
+# Inherits: ~/.claude/CLAUDE.md (global rules always loaded — do not duplicate here)
 # Company: TechCelerate (SEPARATE from Catalyst Medical Education)
-# Version: 1.0 | Updated: 2026-02-25
-
----
-
-## TECHCELERATE IDENTITY
-
-TechCelerate = RT (Radiologic Technologist) continuing education platform
-Accreditor: ASRT (American Society of Radiologic Technologists)
-Sponsor type: General Sponsor (NOT Instructional Provider)
-Stack: WordPress + LearnDash + FluentCRM + SES
-Target launch: July 4, 2026
-Server: Separate WP install from Catalyst main site
+# Version: 2.0 | Updated: 2026-03-04
 
 ---
 
 ## CRITICAL BOUNDARY
 
-TechCelerate is a SEPARATE company from Catalyst Medical Education.
-Never mix: CAMEOS pipeline logic, Catalyst brand, CME grant content into TechCelerate.
-Never mix: ASRT content, RT course material into CAMEOS or Catalyst.
+TechCelerate is a **SEPARATE company** from Catalyst Medical Education.
+- Never mix: CAMEOS pipeline logic, Catalyst brand, CME grant content into TechCelerate.
+- Never mix: ASRT content, RT course material into CAMEOS or Catalyst.
+
+---
+
+## TECHCELERATE IDENTITY
+
+- **What:** RT (Radiologic Technologist) continuing education platform
+- **Accreditor:** ASRT (American Society of Radiologic Technologists)
+- **Sponsor type:** General Sponsor (NOT Instructional Provider)
+- **Stack:** WordPress + LearnDash + FluentCRM + SES
+- **Target launch:** July 4, 2026
+- **Server:** Separate WP install from Catalyst main site
 
 ---
 
@@ -35,11 +35,10 @@ Every course must pass before publishing:
 | Question format | Single best answer only (no SATA) |
 | Pass threshold | 75% minimum |
 | Content review | Licensed RT or SME sign-off required |
-| Reference dates | All clinical references ≤ 5 years |
+| Reference dates | All clinical references <= 5 years |
 | Disclosure | All author COI disclosed |
 
-**AI content policy**: All AI-generated content must be SME-reviewed before submission to ASRT.
-This is non-negotiable. Do not flag content as "AI-generated" in submissions.
+**AI content policy**: All AI-generated content must be SME-reviewed before submission to ASRT. Non-negotiable. Do not flag content as "AI-generated" in submissions.
 
 ---
 
@@ -47,7 +46,7 @@ This is non-negotiable. Do not flag content as "AI-generated" in submissions.
 
 ```
 Stage 1: Outline generation (Claude)
-Stage 2: Section drafting (Claude)  
+Stage 2: Section drafting (Claude)
 Stage 3: ASRT compliance check (automated oracle)
 Stage 4: Post-test generation (Claude)
 Stage 5: SME review (human — cannot be automated)
@@ -63,13 +62,13 @@ Stage 5 always human. Stage 8 semi-automated via WP API.
 
 ## PLATFORM STACK RULES
 
-- LearnDash: course delivery and progress tracking
-- FluentCRM: email sequences and learner management (replaces MailChimp — $4,440/yr savings)
-- SES: email delivery for FluentCRM
-- RankMath: SEO (install post-launch)
-- Wordfence: security (install post-launch)
-- AffiliateWP: affiliate program (Phase 2)
-- Stripe Tax: multi-state sales tax ($0.245/txn)
+- **LearnDash:** course delivery and progress tracking
+- **FluentCRM:** email sequences and learner management (replaces MailChimp — $4,440/yr savings)
+- **SES:** email delivery for FluentCRM
+- **RankMath:** SEO (install post-launch)
+- **Wordfence:** security (install post-launch)
+- **AffiliateWP:** affiliate program (Phase 2)
+- **Stripe Tax:** multi-state sales tax ($0.245/txn)
 
 **Never install new plugins without Lou approval.** Plugin bloat = WP instability.
 
@@ -88,7 +87,7 @@ First action each sprint: Re-contact Heidi Veillette — highest value writer.
 
 ---
 
-## ACTIVE BLOCKERS (as of 2026-02-24)
+## ACTIVE BLOCKERS (as of 2026-03-04)
 
 1. SSH/cPanel access — waiting on Dennis/Doug reply
 2. ASRT call not made — call this week, April 25 deadline at risk
@@ -96,19 +95,15 @@ First action each sprint: Re-contact Heidi Veillette — highest value writer.
 
 Never build LearnDash course structure until SSH access confirmed.
 
-
 ---
 
-## FILE NAMING CONVENTION (enforced, not suggested)
-- All files: YYYY-MM-DD_DESCRIPTIVE-NAME_vN.ext
-- All closure/governance docs: CLOSURE_YYYY-MM-DD_TOPIC-SLUG.md
-- All build state docs: [PROJECT]_BUILD_STATE_YYYY-MM-DD.md
-- All handoff docs: HANDOFF_YYYY-MM-DD_TOPIC-SLUG.md
-- Never use: "final", "v2final", "copy", "new", or lowercase-hyphen for governance docs
-- Proposals: PROPOSAL_[FUNDER]_[TA]_[FORMAT]_YYYY-MM-DD.docx
-- Build outputs: [COMPONENT]_[PASS]_[SCORE]_YYYY-MM-DD.json
-- Commits: "[PROJECT] [phase]: [what changed] — [oracle result]"
-- Branches: feature/[component-name]-YYYY-MM-DD
-- Never commit directly to main without oracle passing
+## TOOL ROUTING
 
-Claude Code and Cowork must follow this convention on every file they create or rename. If a file is found that violates this convention, flag it for rename — do not silently leave it.
+| Tool | Use For | Never Use For |
+|------|---------|---------------|
+| Claude Code Agent Teams | Multi-file diagnosis, fixes, refactors | — |
+| Cowork | File edits only | Running/executing commands |
+| Terminal | Run/execute/git only | File editing |
+| Chrome (MCP) | WordPress admin, LearnDash config, FluentCRM verification | — |
+
+**Never ask Lou to manually check a UI that Chrome can verify.**
