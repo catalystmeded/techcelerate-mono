@@ -5,3 +5,4 @@
 *.tmp
 research/bls-data/
 .DS_Store
+.env
