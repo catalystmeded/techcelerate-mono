@@ -166,6 +166,7 @@ Customizations to these tools stay in this repo's copy.
 | Stripe Tax | Multi-state sales tax ($0.245/txn) | ⬜ Configure with Stripe |
 
 **Never install new plugins without Lou approval.**
+**Plugin license email:** `subscription@catalystmeded.com` — account email for all plugin licenses (Uncanny, FluentCRM, Fluent Forms, AffiliateWP, WP Rocket, Kadence, LearnDash)
 
 ---
 
